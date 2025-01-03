@@ -1,31 +1,28 @@
-#include <iostream>
-#include <string.h>
-#include <strings.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main()
 {
     int n;
     cin >> n;
-    char statements[n * 3];
-    int add = 0;
-    int minus = 0;
-    for (int i = 0; i < n * 3; i++)
+    char statement[3];
+    int x = 0;
+    for (int i = 0; i < n; i++)
     {
-        if (statements[i] == '+')
+        for (int j = 0; j < 3; j++)
         {
-            add++;
+            cin >> statement[j];
         }
-        else if (statements[i] == '-')
+        if (statement[1] == '+')
         {
-            minus++;
+            x++;
         }
         else
         {
-            continue;
+            x--;
         }
     }
-    cout<<add;
-    cout<<endl<<minus;
-    cout << add / 2 - minus / 2;
+
+    cout << x;
+    return 0;
 }

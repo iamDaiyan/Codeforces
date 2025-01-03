@@ -1,29 +1,35 @@
-#include <iostream>
-#include <cmath>
+#include <bits/stdc++.h>
 using namespace std;
 
-int length(int a)
+int digits(int n)
 {
-    string num = to_string(a);
-    return num.size();
+    return floor(log10(n) + 1);
 }
 int main()
 {
     int a, b;
     cin >> a >> b;
-    int size = length(a);
-    for (int i = 0; i < size; i++)
+    int digit;
+    digit = digits(a);
+    int ans[digit];
+
+    for (int i = 1; i <= digit; i++)
     {
-        if ((b % pow(10, size - i)) != (a % pow(10, size - i)))
+        if (a % 10 == b % 10)
         {
-            cout << 1;
+            ans[digit - i] = 0;
         }
         else
         {
-            cout << 0;
+            ans[digit - i] = 1;
         }
-
         a /= 10;
         b /= 10;
     }
+    for (int i = 0; i < digit; i++)
+    {
+        cout << ans[i];
+    }
+
+    return 0;
 }
